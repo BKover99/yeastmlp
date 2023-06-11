@@ -1,4 +1,4 @@
-# pymlp
+# yeastmlp
 Python package for analysing MLP-formation
 
 Two modules:
