@@ -17,5 +17,5 @@ To have a feel for how the software works, see the attached Jupyter Notebooks, w
 ### Goals
 
 - [x] Releasing early version of repo, and the package on pypi - Jun 16, 2023
-- [ ] Finalising code
+- [x] Finalising code
 - [ ] Publication of peer-reviewed research article
