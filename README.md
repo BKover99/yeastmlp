@@ -1,7 +1,8 @@
 # yeastmlp
 Python package for analysing MLP-formation
 
-### Status of the repo: Under construction (by no means finalised)
+# On pypi
+https://pypi.org/project/yeastmlp/
 
 ## Two modules:
 ### Adhesion
@@ -17,5 +18,5 @@ To have a feel for how the software works, see the attached Jupyter Notebooks, w
 ### Goals
 
 - [x] Releasing early version of repo, and the package on pypi - Jun 16, 2023
-- [x] Finalising code
+- [x] Finalising code - Aug 31, 2023
 - [ ] Publication of peer-reviewed research article
