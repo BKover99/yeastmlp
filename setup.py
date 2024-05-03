@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 
 
 
-VERSION = '0.0.3'
+VERSION = '1.0.4'
 DESCRIPTION = 'Python package for analysis of Multicellular-like phenotype formation in yeast species'
 LONG_DESCRIPTION = 'Python package for analysis of Multicellular-like phenotype formation in yeast, for more information see https://github.com/BKover99/yeastmlp'
 
