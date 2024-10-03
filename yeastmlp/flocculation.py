@@ -2,10 +2,12 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
-import skimage.io
-import skimage.filters
-import skimage.measure
-import seaborn as sns
+
+#Add these back in before merging
+#import skimage.io   
+#import skimage.filters
+#import skimage.measure
+#import seaborn as sns
 import os
 import glob
 
@@ -190,3 +192,46 @@ def barchart_from_df(df):
     ax.set_ylabel("CV")
     # twist the x-axis labels
     ax.set_xticklabels(df.index, rotation=90)
+
+
+
+def read_OD_from_single_reading_asc(fname):
+    #Reads Od meaasurements from tecan plate reader output with single measurement when data is in ASC form.  Output is a dictionary from well to reading.  
+    
+    od_data = {}
+
+    with open(fname,'r' ) as f_in: 
+        section_break = "<>"
+        for line in f_in: 
+            if section_break in line: 
+                break
+            well = line.strip()
+            od = float(next(f_in).strip())
+            od_data[well] = od
+
+    return od_data
+
+def read_OD_from_multiple_reading_asc(fname, n_sqrt_meas):
+    #Reads Od meaasurements from tecan plate reader output with single measurement when data is in ASC form.  
+    # input: 
+    # fname 
+    # n_sqrt_meas:  the square root of the number of measurements you are making (e.g. for a 4x4 grid it would be 4)
+    # Output is a dictionary from well to a list containing the readings.
+    
+    od_data={}
+    
+    with open(fname) as f_in:
+        for line in f_in: 
+            if line[0] in 'ABCDEFGH':
+                well = line.strip()
+                well_data = []
+                for jj in range(0,n_sqrt_meas):
+                    well_data_line = next(f_in) 
+                    well_data_line = [float(reading) for reading in well_data_line.strip().split('\t')]           
+                    well_data = well_data + well_data_line
+                od_data[well] = well_data
+            if line[0:2]=='<>':
+                print(line)
+                break
+    
+    return od_data
