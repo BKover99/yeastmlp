@@ -1,4 +1,4 @@
 *.pyc
 .ipynb_checkpoints
 yeastmlp/__pycache__/
-.DS_store
+*.DS_store
